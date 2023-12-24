@@ -16,7 +16,7 @@ actions = {
 }
 
 view = ->(state, actions) {
-  eval DomParser.parse(<<-DOM)
+  eval RubyWasmVdom::DomParser.parse(<<-DOM)
     <div class="max-w-lg mx-auto bg-white p-4 rounded-lg shadow">
       <h1 class="text-2xl font-bold mb-4">Brainf*ck Interpreter</h1>
       <form onsubmit='{->(e) { actions[:run_code].call(state, e) }}'>
@@ -47,7 +47,7 @@ view = ->(state, actions) {
   DOM
 }
 
-App.new(
+RubyWasmVdom::App.new(
   el: "#app",
   state:,
   view:,
